@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src https://cdnjs.cloudflare.com https://fonts.gstatic.com; script-src 'self'; img-src 'self' https://cdn.cloudflare.steamstatic.com https://steamcdn-a.akamaihd.net data:; connect-src https://api.github.com;">
+  <title>SystemZero Manifest</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="glowCanvas" class="bg-canvas"></canvas>
+  <div class="shell">
+    <div class="topline">
+      <div class="brand">
+        <div>
+          <h1>SystemZero Manifest</h1>
+        </div>
+      </div>
+      <span class="badge"><span class="status-dot"></span><span class="status-label">Online</span></span>
+    </div>
+
+    <div class="panel">
+      <h3>Steam App ID</h3>
+      <p class="muted">Enter a numeric App ID and run a quick check.</p>
+      <div class="input-row">
+        <div class="input-shell">
+          <i class="fas fa-database icon-accent"></i>
+          <input id="gameId" type="text" inputmode="numeric" pattern="\d*" autocomplete="off" spellcheck="false" placeholder="Example: 220968">
+        </div>
+        <button id="checkBtn" class="btn"><i class="fas fa-satellite-dish"></i> Scan</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Output</h3>
+      <div id="terminalOutput" class="terminal"></div>
+    </div>
+
+    <div id="resultsSection" class="panel hidden">
+      <img id="gameArt" class="art" alt="Game art" loading="lazy">
+
+      <div id="downloadSection" class="center hidden">
+        <a id="downloadLink" class="btn btn-link" rel="noopener noreferrer">
+          <i class="fas fa-download"></i> Download manifest
+        </a>
+      </div>
+
+      <div id="notFoundSection" class="center hidden">
+        <p class="muted alert">Manifest not found for this App ID.</p>
+      </div>
+    </div>
+
+    <p class="muted center footer-note">Client-side only. No storage. Division: SystemZero.</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
